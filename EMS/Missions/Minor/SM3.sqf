@@ -35,14 +35,12 @@ _vehicle1 = createVehicle ["UAZ_Unarmed_UN_EP1",[(_coords select 0) - 25, (_coor
 
 //We create and fill the crate
 _crate = createVehicle ["USVehicleBox",[(_coords select 0) - 3, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate,"weapons"] ExecVM DZMSBoxSetup;
+[_crate,"weap"] ExecVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
 [[(_coords select 0) - 20, (_coords select 1) - 15,0],6,0] ExecVM DZMSAISpawn;
-sleep 3;
-[[(_coords select 0) + 20, (_coords select 1) + 15,0],6,0] ExecVM DZMSAISpawn;
 sleep 3;
 
 //Wait until the player is within 30meters

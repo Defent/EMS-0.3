@@ -3,20 +3,28 @@
 	Updated to new format by Vampire
 	Edited by Fuchs for EMS
 */
-private ["_missName","_coords","_crash","_crate","_crate1","_crate2"];
+private ["_missName","_coords","_vehicle","_crate","_crate1","_crate2"];
 
 //Name of the Mission
-_missName = "Bandit Weapons Truck";
+_missName = "Heli Crash";
+
+[nil,nil,rTitleText,"A Mi8 helicopter has crashed! Check your map for the location!", "PLAIN",10] call RE;
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;
 
-_vehicle = createVehicle ["Mi8Wreck",[(_coords select 0) + 10, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
-_vehicle call DZMSProtectObj;
+[_coords,_missName] ExecVM DZMSAddMinMarker;
 
-[_coords,4,2] ExecVM DZMSAISpawn;
-sleep 1;
-[_coords,6,3] ExecVM DZMSAISpawn;
+//DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
+_crate = createVehicle ["USLaunchersBox",[(_coords select 0) - 10, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+[_crate,"weap"] ExecVM DZMSBoxSetup;
+[_crate] call DZMSProtectObj;
+
+
+_vehicle = createVehicle ["Mi8Wreck",[(_coords select 0) + 10, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
+[_vehicle] call DZMSProtectObj;
+
+[_coords,5,2] ExecVM DZMSAISpawn;
 sleep 1;
 
 //Wait until the player is within 30meters

@@ -19,12 +19,12 @@ _coords = call DZMSFindPos;
 //We create the vehicles like normal
 _vehicle = createVehicle ["UAZ_Unarmed_UN_EP1",[(_coords select 0) + 10, (_coords select 1) - 20,0],[], 0, "CAN_COLLIDE"];
 _vehicle1 = createVehicle ["UAZ_Unarmed_UN_EP1",[(_coords select 0) + 20, (_coords select 1) - 10,0],[], 0, "CAN_COLLIDE"];
-_vehicle2 = createVehicle ["SUV_TK_CIV_EP1",[(_coords select 0) + 30, (_coords select 1) + 10,10],[], 0, "CAN_COLLIDE"];
+//_vehicle2 = createVehicle ["SUV_TK_CIV_EP1",[(_coords select 0) + 30, (_coords select 1) + 10,10],[], 0, "CAN_COLLIDE"];
 
 //DZMSSetupVehicle prevents the vehicle from disappearing and sets fuel and such
 [_vehicle] call DZMSSetupVehicle;
 [_vehicle1] call DZMSSetupVehicle;
-[_vehicle2] call DZMSSetupVehicle;
+//[_vehicle2] call DZMSSetupVehicle;
 
 _crate = createVehicle ["USVehicleBox",_coords,[], 0, "CAN_COLLIDE"];
 
@@ -34,14 +34,9 @@ _crate = createVehicle ["USVehicleBox",_coords,[], 0, "CAN_COLLIDE"];
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
-[_coords,6,1] ExecVM DZMSAISpawn;
+[_coords,4,2] ExecVM DZMSAISpawn;
 sleep 5;
-[_coords,6,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,4,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,4,1] ExecVM DZMSAISpawn;
-sleep 5;
+
 
 //Wait until the player is within 30meters
 waitUntil{ {isPlayer _x && _x distance _coords <= 30 } count playableunits > 0 }; 

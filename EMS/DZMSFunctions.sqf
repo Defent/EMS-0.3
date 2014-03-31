@@ -92,7 +92,7 @@ DZMSFindPos = {
 		_findRun = true;
 		while {_findRun} do
 		{
-			_pos = [_centerPos,0,5500,100,0,20,0] call BIS_fnc_findSafePos;
+			_pos = [getMarkerPos "center",0,4000,30,0,20,0] call BIS_fnc_findSafePos;
 			
 			//Apparently you can't compare two arrays and must compare values
 			_posX = _pos select 0;

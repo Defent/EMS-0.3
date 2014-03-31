@@ -27,21 +27,17 @@ _vehicle = createVehicle ["HMMWV_DZ",[(_coords select 0) + 25, (_coords select 1
 [_vehicle] call DZMSSetupVehicle;
 
 //Create the loot
-_crate = createVehicle ["USVehicleBox",[(_coords select 0) + 5, (_coords select 1),0],[], 0, "CAN_COLLIDE"];
+_crate = createVehicle ["MedBox0",[(_coords select 0) + 2, (_coords select 1),0],[], 0, "CAN_COLLIDE"];
 [_crate,"medical"] ExecVM DZMSBoxSetup;
 
-_crate2 = createVehicle ["USLaunchersBox",[(_coords select 0) + 12, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+_crate2 = createVehicle ["USLaunchersBox",[(_coords select 0) + 1, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 [_crate2,"weapons"] ExecVM DZMSBoxSetup;
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
-[_coords,3,1] ExecVM DZMSAISpawn;
+[_coords,5,1] ExecVM DZMSAISpawn;
 sleep 5;
-[_coords,3,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,3,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,3,1] ExecVM DZMSAISpawn;
+
 
 //Wait until the player is within 30meters
 waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0};

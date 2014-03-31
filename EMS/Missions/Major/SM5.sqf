@@ -28,7 +28,7 @@ _vehicle1 = createVehicle ["HMMWV_DZ",[(_coords select 0) + 30, (_coords select 
 [_vehicle] call DZMSSetupVehicle;
 [_vehicle1] call DZMSSetupVehicle;
 
-_crate = createVehicle ["USVehicleBox",[(_coords select 0) - 6, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+_crate = createVehicle ["MedBox0",[(_coords select 0) - 6, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
 [_crate,"medical"] ExecVM DZMSBoxSetup;
@@ -40,10 +40,6 @@ _crate2 = createVehicle ["USLaunchersBox",[(_coords select 0) - 10, _coords sele
 [_crate2] call DZMSProtectObj;
 
 [_coords,6,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,6,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,4,1] ExecVM DZMSAISpawn;
 sleep 5;
 
 waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0}; 

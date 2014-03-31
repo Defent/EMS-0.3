@@ -2,7 +2,7 @@
 	Medical Outpost by lazyink (Full credit for code to TheSzerdi & TAW_Tonic)
 	Updated to new format by Vampire
 */
-private ["_missName","_coords","_base","_base1","_base2","_base3","_vehicle","_vehicle1","_crate","_crate2"];
+private ["_missName","_coords","_base","_base1","_base2","_base3","_vehicle","_vehicle1","_crate","_crate2","_crate3"];
 
 //Name of the Mission
 _missName = "Bandit Medical Outpost";
@@ -36,26 +36,26 @@ _vehicle1 = createVehicle ["HMMWV_DZ",[(_coords select 0) + 15, (_coords select 
 [_vehicle1] call DZMSSetupVehicle;
 
 //We create and fill the crates
-_crate = createVehicle ["USVehicleBox",[(_coords select 0) - 3, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-
+_crate = createVehicle ["MedBox0",[(_coords select 0) - 12, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
 [_crate,"medical"] ExecVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
 _crate2 = createVehicle ["USLaunchersBox",[(_coords select 0) - 8, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate2,"weapons"] ExecVM DZMSBoxSetup;
+[_crate2,"weap"] ExecVM DZMSBoxSetup;
 [_crate2] call DZMSProtectObj;
+
+//We create and fill the crates
+_crate3 = createVehicle ["MedBox0",[(_coords select 0) - 3, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+//DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
+[_crate3,"medical"] ExecVM DZMSBoxSetup;
+[_crate3] call DZMSProtectObj;
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
 [[(_coords select 0) - 20, (_coords select 1) - 15,0],4,0] ExecVM DZMSAISpawn;
 sleep 3;
-[[(_coords select 0) + 10, (_coords select 1) + 15,0],4,0] ExecVM DZMSAISpawn;
-sleep 3;
-[[(_coords select 0) - 10, (_coords select 1) - 15,0],4,0] ExecVM DZMSAISpawn;
-sleep 3;
-[[(_coords select 0) + 20, (_coords select 1) + 15,0],4,0] ExecVM DZMSAISpawn;
-sleep 3;
+
 
 //Wait until the player is within 30meters
 waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0}; 

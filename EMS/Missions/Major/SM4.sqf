@@ -33,20 +33,16 @@ _crate2 = createVehicle ["USLaunchersBox",[(_coords select 0) + 6, _coords selec
 [_crate2,"weapons"] ExecVM DZMSBoxSetup;
 [_crate2] call DZMSProtectObj;
 
+/*
 _crate3 = createVehicle ["RULaunchersBox",[(_coords select 0) - 14, (_coords select 1) -10,0],[], 0, "CAN_COLLIDE"];
 [_crate3,"weapons"] ExecVM DZMSBoxSetup;
 [_crate3] call DZMSProtectObj;
-
+*/
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
 [_coords,6,1] ExecVM DZMSAISpawn;
 sleep 5;
-[_coords,4,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,4,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,4,1] ExecVM DZMSAISpawn;
-sleep 5;
+
 
 //Wait until the player is within 30meters
 waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0}; 

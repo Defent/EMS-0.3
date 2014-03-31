@@ -7,19 +7,19 @@
 private ["_missName","_coords","_vehicle","_vehicle1"];
 
 //Name of the Mission
-_missName = "HMMWV's";
+_missName = "Broken HMWVs";
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;
 
-[nil,nil,rTitleText,"Two HMMWV's has broken down! Secure their firepower for yourself!", "PLAIN",10] call RE;
+[nil,nil,rTitleText,"Two HMMWV's have broken down! Secure their fire power for yourself!", "PLAIN",10] call RE;
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] ExecVM DZMSAddMajMarker;
 
 //We create the vehicles like normal
-_vehicle = createVehicle ["HMMWV_M998_crows_MK19_DES_EP1_DZE",[(_coords select 0) + 10, (_coords select 1) - 10,0],[], 0, "CAN_COLLIDE"];
-_vehicle1 = createVehicle ["HMMWV_M998_crows_MK19_DES_EP1_DZE",[(_coords select 0) + 20, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
+_vehicle = createVehicle ["HMMWV_DES_EP1",[(_coords select 0) + 10, (_coords select 1) - 10,0],[], 0, "CAN_COLLIDE"];
+_vehicle1 = createVehicle ["HMMWV_M1151_M2_CZ_DES_EP1_DZE",[(_coords select 0) + 20, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
 
 //DZMSSetupVehicle prevents the vehicle from disappearing and sets fuel and such
 [_vehicle] call DZMSSetupVehicle;
@@ -27,8 +27,6 @@ _vehicle1 = createVehicle ["HMMWV_M998_crows_MK19_DES_EP1_DZE",[(_coords select 
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
-[_coords,5,1] ExecVM DZMSAISpawn;
-sleep 5;
 [_coords,5,1] ExecVM DZMSAISpawn;
 sleep 5;
 

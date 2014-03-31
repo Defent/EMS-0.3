@@ -7,27 +7,25 @@
 private ["_missName","_coords","_vehicle"];
 
 //Name of the Mission
-_missName = "CH47 Mission";
+_missName = "Bandit UH1H";
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;
 
-[nil,nil,rTitleText,"A CH47 has crash landed! Secure it's firepower for yourself!", "PLAIN",10] call RE;
+[nil,nil,rTitleText,"A bandit UH1H has landed! Secure its fire power for yourself!", "PLAIN",10] call RE;
 
-//DZMSAddMajMarker is a simple script that ad
+//DZMSAddMajMarker is a simple script that adds markers
+[_coords,_missname] ExecVM DZMSAddMajMarker;
 //Create the vehicles
-_vehicle = createVehicle ["CH_47F_EP1_DZE",[(_coords select 0) + 25, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
+
+_vehicle = createVehicle ["UH1H_DZE",[(_coords select 0) + 10, (_coords select 1) - 10,0],[], 0, "CAN_COLLIDE"];
 [_vehicle] call DZMSSetupVehicle;
 	
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
-[_coords,3,1] ExecVM DZMSAISpawn;
+[_coords,5,1] ExecVM DZMSAISpawn;
 sleep 5;
-[_coords,3,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,3,1] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,3,1] ExecVM DZMSAISpawn;
+
 
 //Wait until the player is within 30meters
 waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0};
@@ -37,8 +35,8 @@ waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0};
 [_vehicle] ExecVM DZMSSaveVeh;
 
 //Let everyone know the mission is over
-[nil,nil,rTitleText,"Good work you've secured the helicopter!", "PLAIN",6] call RE;
-diag_log format["[DZMS]: Major SM10 CH47 Mission has Ended."];
+[nil,nil,rTitleText,"Survivors have secured the UH1H helicopter!", "PLAIN",6] call RE;
+diag_log format["[DZMS]: Major SM10 UH1H Mission has Ended."];
 deleteMarker "DZMSMajMarker";
 deleteMarker "DZMSMajDot";
 

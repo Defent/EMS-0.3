@@ -3,7 +3,7 @@
 	Modified to new format by Vampire
 */
 
-private ["_missName","_coords","_c130wreck","_crate","_crate2","_vehicle","_vehicle1","_vehicle2"];
+private ["_missName","_coords","_c130wreck","_crate","_crate2","_crate3","_vehicle","_vehicle1","_vehicle2"];
 
 //Name of the Mission
 _missName = "Medical C-130 Crash";
@@ -23,33 +23,32 @@ _c130wreck = createVehicle ["C130J_wreck_EP1",[(_coords select 0) + 30, (_coords
 //We create the mission vehicles
 _vehicle = createVehicle ["HMMWV_DZ",[(_coords select 0) - 20, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
 _vehicle1 = createVehicle ["UAZ_Unarmed_UN_EP1",[(_coords select 0) - 30, (_coords select 1) - 10,0],[], 0, "CAN_COLLIDE"];
-_vehicle2 = createVehicle ["SUV_TK_CIV_EP1",[(_coords select 0) + 10, (_coords select 1) + 5,0],[], 0, "CAN_COLLIDE"];
+//_vehicle2 = createVehicle ["SUV_TK_CIV_EP1",[(_coords select 0) + 10, (_coords select 1) + 5,0],[], 0, "CAN_COLLIDE"];
 
 //DZMSSetupVehicle prevents the vehicle from disappearing and sets fuel and such
 [_vehicle] call DZMSSetupVehicle;
 [_vehicle1] call DZMSSetupVehicle;
-[_vehicle2] call DZMSSetupVehicle;
+//[_vehicle2] call DZMSSetupVehicle;
 
-_crate = createVehicle ["USVehicleBox",[(_coords select 0) - 10, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+_crate = createVehicle ["USVehicleBox",[(_coords select 0) - 2, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
 [_crate,"weapons"] ExecVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
-_crate2 = createVehicle ["USLaunchersBox",[(_coords select 0) - 6, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+_crate2 = createVehicle ["MedBox0",[(_coords select 0) - 6, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 
-[_crate2,"weapons"] ExecVM DZMSBoxSetup;
+[_crate2,"medical"] ExecVM DZMSBoxSetup;
 [_crate2] call DZMSProtectObj;
+
+_crate3 = createVehicle ["MedBox0",[(_coords select 0) - 5, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+[_crate3,"medical"] ExecVM DZMSBoxSetup;
+[_crate3] call DZMSProtectObj;
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
 [[(_coords select 0) + 20, _coords select 1,0],6,1] ExecVM DZMSAISpawn;
 sleep 5;
-[[(_coords select 0) + 30, _coords select 1,0],6,1] ExecVM DZMSAISpawn;
-sleep 5;
-[[(_coords select 0) + 20, _coords select 1,0],4,1] ExecVM DZMSAISpawn;
-sleep 5;
-[[(_coords select 0) + 30, _coords select 1,0],4,1] ExecVM DZMSAISpawn;
 
 //Wait until the player is within 30meters
 waitUntil{{isPlayer _x && _x distance _coords <= 30 } count playableunits > 0}; 

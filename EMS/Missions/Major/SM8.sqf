@@ -9,6 +9,9 @@ private ["_missName","_coords","_vehicle","_crate","_crate2"];
 //Name of the Mission
 _missName = "C-130 Crash";
 
+//DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
+_coords = call DZMSFindPos;
+
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] ExecVM DZMSAddMajMarker;
 
@@ -16,10 +19,10 @@ _missName = "C-130 Crash";
 
 _vehicle = createVehicle ["C130J_wreck_EP1",[(_coords select 0) + 35, (_coords select 1) - 5,0],[], 0, "NONE"];
 _crate = createVehicle ["USVehicleBox",[(_coords select 0) - 20, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-_crate2 = createVehicle ["USVehicleBox",[(_coords select 0) + 20, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+_crate2 = createVehicle ["MedBox0",[(_coords select 0) + 20, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
-[_crate,"weap"] ExecVM DZMSBoxSetup;
+[_crate,"weapons"] ExecVM DZMSBoxSetup;
 [_crate2,"meds"] ExecVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 [_crate2] call DZMSProtectObj;
@@ -28,10 +31,7 @@ _crate2 = createVehicle ["USVehicleBox",[(_coords select 0) + 20, _coords select
 //Usage: [_coords, count, skillLevel]
 [_coords,6,1] ExecVM DZMSAISpawn;
 sleep 5;
-[_coords,4,2] ExecVM DZMSAISpawn;
-sleep 5;
-[_coords,4,3] ExecVM DZMSAISpawn;
-sleep 5;
+
 
 //Wait until the player is within 30meters
 waitUntil{ {isPlayer _x && _x distance _coords <= 30 } count playableunits > 0 }; 

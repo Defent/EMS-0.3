@@ -16,6 +16,11 @@ _coords = call DZMSFindPos;
 //DZMSAddMinMarker is a simple script that adds a marker to the location
 [_coords,_missName] ExecVM DZMSAddMinMarker;
 
+//We create and fill the crates
+_crate = createVehicle ["USLaunchersBox",[(_coords select 0) - 6, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+[_crate,"weap"] ExecVM DZMSBoxSetup;
+[_crate] call DZMSProtectObj;
+
 //Add the scenery
 _crash = createVehicle ["uralwreck", _coords,[], 0, "CAN_COLLIDE"];
 [_crash] call DZMSProtectObj;
@@ -23,10 +28,6 @@ _crash = createVehicle ["uralwreck", _coords,[], 0, "CAN_COLLIDE"];
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
 [_coords,6,1] ExecVM DZMSAISpawn;
-sleep 1;
-[_coords,6,1] ExecVM DZMSAISpawn;
-sleep 1;
-[_coords,3,3] ExecVM DZMSAISpawn;
 sleep 1;
 
 //Wait until the player is within 30meters

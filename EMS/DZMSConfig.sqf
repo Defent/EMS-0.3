@@ -8,10 +8,10 @@
 DZMSMissHumanity = true;
 
 // How Much Humanity?
-DZMSCntHumanity = 25;
+DZMSCntHumanity = 100;
 
 // Do you want AI kills to count as bandit kills?
-DZMSCntBanditKls = true;
+DZMSCntBanditKls = false;
 
 // Do you want AI that players run over to not have gear?
 DZMSRunGear = false;
@@ -45,20 +45,20 @@ DZMSMinorArray = ["SM1","SM2","SM3","SM4","SM5","SM6","SM7","SM8","SM9","SM10","
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // The Minumum time in seconds before a major mission will run.
-// At least this much time will pass between major missions. Default = 650 (10.8 Minutes)
-DZMSMajorMin = 650;
+// At least this much time will pass between major missions. Default = 960 (10.8 Minutes)
+DZMSMajorMin = 960;
 
 // Maximum time in seconds before a major mission will run.
-// A major mission will always run before this much time has passed. Default = 2000 (33.33 Minutes)
-DZMSMajorMax = 2000;
+// A major mission will always run before this much time has passed. Default = 2900 (33.33 Minutes)
+DZMSMajorMax = 2900;
 
 // Time in seconds before a minor mission will run.
-// At least this much time will pass between minor missions. Default = 600 (10 Minutes)
-DZMSMinorMin = 600;
+// At least this much time will pass between minor missions. Default = 960 (10 Minutes)
+DZMSMinorMin = 960;
 
 // Maximum time in seconds before a minor mission will run.
-// A minor mission will always run before this much time has passed. Default = 990 (16.5 Minutes)
-DZMSMinorMax = 990;
+// A minor mission will always run before this much time has passed. Default = 1730;(16.5 Minutes)
+DZMSMinorMax = 1730;
 
 
 

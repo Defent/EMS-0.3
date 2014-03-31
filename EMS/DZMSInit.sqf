@@ -17,7 +17,7 @@ if (!isnil("DZMSInstalled")) exitWith { diag_log format ["[DZMS]: <ERROR> DZMS i
 // Global for other scripts to check if DZMS is installed.
 DZMSInstalled = true;
 
-diag_log format ["[DZMS]: Starting DayZ Mission System."];
+diag_log format ["[DZMS]: Starting DayZ Epoch Mission System."];
 
 // Let's see if we need to set relationships
 // Checking for DayZAI, SargeAI, and WickedAI (Three AI Systems that already set relations)

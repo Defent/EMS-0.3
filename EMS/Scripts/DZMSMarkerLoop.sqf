@@ -32,10 +32,10 @@ while {_run} do
 		deleteMarker "DZMSMinDot";
 		//Re-Add the markers
 		_nil = createMarker ["DZMSMinMarker", DZMSMinCoords];
-		"DZMSMinMarker" setMarkerColor "ColorRed";
+		"DZMSMinMarker" setMarkerColor "ColorGreen";
 		"DZMSMinMarker" setMarkerShape "ELLIPSE";
 		"DZMSMinMarker" setMarkerBrush "Grid";
-		"DZMSMinMarker" setMarkerSize [150,150];
+		"DZMSMinMarker" setMarkerSize [125,125];
 		_zip = createMarker ["DZMSMinDot", DZMSMinCoords];
 		"DZMSMinDot" setMarkerColor "ColorBlack";
 		"DZMSMinDot" setMarkerType "mil_dot";

@@ -23,27 +23,19 @@ _crash = createVehicle ["UralWreck",_coords,[], 0, "CAN_COLLIDE"];
 
 //Add and fill the boxes
 _crate = createVehicle ["USLaunchersBox",[(_coords select 0) + 3, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate,"weapons"] ExecVM DZMSBoxSetup;
+[_crate,"weap"] ExecVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
 _crate1 = createVehicle ["USLaunchersBox",[(_coords select 0) - 3, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate1,"weapons"] ExecVM DZMSBoxSetup;
+[_crate1,"weap"] ExecVM DZMSBoxSetup;
 [_crate1] call DZMSProtectObj;
 
-_crate2 = createVehicle ["RULaunchersBox",[(_coords select 0) - 6, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate2,"weapons"] ExecVM DZMSBoxSetup;
-[_crate2] call DZMSProtectObj;
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
-[_coords,3,0] ExecVM DZMSAISpawn;
+[_coords,5,0] ExecVM DZMSAISpawn;
 sleep 1;
-[_coords,3,0] ExecVM DZMSAISpawn;
-sleep 1;
-[_coords,3,0] ExecVM DZMSAISpawn;
-sleep 1;
-[_coords,3,0] ExecVM DZMSAISpawn;
-sleep 1;
+
 
 //Wait until the player is within 30meters
 waitUntil{{isPlayer _x && _x distance _coords <= 30 } count playableunits > 0}; 
