@@ -50,7 +50,7 @@ waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0};
 [_vehicle1] ExecVM DZMSSaveVeh;
 
 [nil,nil,rTitleText,"The medical supplies have been secured by survivors!", "PLAIN",6] call RE;
-diag_log format["[DZMS]: Major SM5 Medical Supplies Mission has Ended."];
+diag_log format["[DZMS]: Major SM5 Medical Ural Mission has Ended."];
 deleteMarker "DZMSMajMarker";
 deleteMarker "DZMSMajDot";
 

@@ -46,7 +46,7 @@ waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0};
 [_vehicle1] ExecVM DZMSSaveVeh;
 
 [nil,nil,rTitleText,"Survivors have secured the IKEA truck, Ingvar Kamprad is mighty pleased!", "PLAIN",6] call RE;
-diag_log format["[DZMS]: Major SM14 IKEA has Ended."];
+diag_log format["[DZMS]: Major SM6 IKEA Truck Mission has Ended."];
 deleteMarker "DZMSMajMarker";
 deleteMarker "DZMSMajDot";
 

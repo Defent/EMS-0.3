@@ -39,7 +39,7 @@ waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0};
 
 //Let everyone know the mission is over
 [nil,nil,rTitleText,"Survivors secured the HMMWV's!", "PLAIN",6] call RE;
-diag_log format["[DZMS]: Major SM3 Medical Camp Mission has Ended."];
+diag_log format["[DZMS]: Major SM11 Broken HMWV Mission has Ended."];
 deleteMarker "DZMSMajMarker";
 deleteMarker "DZMSMajDot";
 
