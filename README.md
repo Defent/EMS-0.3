@@ -31,7 +31,8 @@ Installation
 	> https://github.com/TheFuchs/EMS-0.3/archive/master.zip
 
 	1.1 You can also download Defent's forked version here:
-		> https://github.com/Defent/EMS-0.3/archive/EMS-0.3-master.zip
+	>
+		> https://github.com/Defent/EMS-0.3/archive/EMS-0.3.1-master.zip
 	
 2.	Extract it to your Desktop or somewhere where you won't lose it.
 	Inside the Zip is this Readme.MD, a folder called Documentation, and one called EMS.
