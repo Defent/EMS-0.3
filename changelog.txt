@@ -1,17 +1,26 @@
 =======================================
 ======== Epoch Mission System  ========
-====== Rolling Change Log: 0.3 ======
+====== Rolling Change Log: 0.3.1 ======
 =======================================
 
-Release version: 0.3
-Release date: Feb 14, 2014
+Release version: 0.3.1
+Release date: July 12, 2014
 
 Notes: 
-Version 0.3 based on DZMS 1.0 from Vampire !
+Version 0.3.1 based on DZMS 1.1 Final from TheVampire !
 
-
-* [FIXED] SM8 Major, dzmsbox.sqf one }; was too much
-* [UPDATED] Github with changelog and renamed Version
-* [ADDED] some stuff from EMS 0.2.6 Crates 
-* [REMOVED] ...nothing yet
-* [TODO] Redefine some AI setups for sniper axeman mission !
+* [FIXED] Clearing missions now de-spawn the AI and scenery better.
+* [FIXED] Almost all missions have been fixed now and should work perfectly.
+* [UPDATED] Base code and framework.
+* [UPDATED] Loot Tables
+* [UPDATED] AI skins
+* [UPDATED] AI skills
+* [UPDATED] Box loot settings
+* [ADDED] Box loot configs
+* [ADDED] Remove mission vehicle ammo
+* [ADDED] Spawn rate items in boxes
+* [ADDED] God Missions 
+* [ADDED] IKEA missions
+* [ADDED] Functions from the latest DZMS version
+* [REMOVED] Uneccesary code and many other things
+* [MISC] Other things, a lot to mention.

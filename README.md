@@ -1,6 +1,7 @@
 ## [EMS] Epoch Mission System 
 ### Version 0.3
 #### Based on Vampire's DZMS 
+##### Updated and revamped slightly by Defent July 12, 2014.
 > http://opendayz.net/threads/beta-dzms-dayz-mission-system.18421/ 
 
 (Let their bodies hit the floor)
