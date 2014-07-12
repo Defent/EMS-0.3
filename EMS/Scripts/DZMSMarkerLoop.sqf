@@ -4,18 +4,13 @@
 */
 private["_run","_nul","_nil"];
 
-diag_log text format ["[DZMS]: Mission Marker Loop for JIPs Starting!"];
-
-//Lets define these
-if (isNil "DZMSMajCoords")then{DZMSMajCoords = [0,0,0];};
-if (isNil "DZMSMinCoords")then{DZMSMinCoords = [0,0,0];};
+diag_log format ["[DZMS]: Mission Marker Loop for JIPs Starting!"];
 
 //Lets start the timer
 _run = true;
 while {_run} do
 {
-    //[25,5] call DZMSSleep; // sleep 25 seconds
-	uiSleep 10;
+	sleep 25; //Sleep 25 seconds
 	//If the marker exists (meaning the mission is active) lets delete it and re-add it
 	if (!(getMarkerColor "DZMSMajMarker" == "")) then {
 		deleteMarker "DZMSMajMarker";
@@ -24,7 +19,7 @@ while {_run} do
 		_nul = createMarker ["DZMSMajMarker", DZMSMajCoords];
 		"DZMSMajMarker" setMarkerColor "ColorRed";
 		"DZMSMajMarker" setMarkerShape "ELLIPSE";
-		"DZMSMajMarker" setMarkerBrush "Solid";
+		"DZMSMajMarker" setMarkerBrush "Grid";
 		"DZMSMajMarker" setMarkerSize [175,175];
 		_zap = createMarker ["DZMSMajDot", DZMSMajCoords];
 		"DZMSMajDot" setMarkerColor "ColorBlack";
@@ -39,7 +34,7 @@ while {_run} do
 		_nil = createMarker ["DZMSMinMarker", DZMSMinCoords];
 		"DZMSMinMarker" setMarkerColor "ColorGreen";
 		"DZMSMinMarker" setMarkerShape "ELLIPSE";
-		"DZMSMinMarker" setMarkerBrush "Solid";
+		"DZMSMinMarker" setMarkerBrush "Grid";
 		"DZMSMinMarker" setMarkerSize [125,125];
 		_zip = createMarker ["DZMSMinDot", DZMSMinCoords];
 		"DZMSMinDot" setMarkerColor "ColorBlack";

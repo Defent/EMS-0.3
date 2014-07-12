@@ -1,5 +1,5 @@
 ## [EMS] Epoch Mission System 
-### Version 0.3.1(?)
+### Version 0.3
 #### Based on Vampire's DZMS 
 > http://opendayz.net/threads/beta-dzms-dayz-mission-system.18421/ 
 

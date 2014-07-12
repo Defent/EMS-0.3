@@ -1,24 +1,5 @@
 =======================================
 ======== Epoch Mission System  ========
-====== Rolling Change Log: 0.3.1 ======
-=======================================
-Release version: 0.3.1
-Release date: Jul 12, 2014
-
-Converted EMS to the newer DZMS system, created and modified by TheVampire.
-All credits goes to him and the respective people of DZMS, EMS & the original creators.
-
-* Fixed a bunch of errors, problems and performance issues.
-* Added Gold Mission
-* Added IKEA Helicopter Mission
-* Fixed loads of other missions
-* Added Possibility to customize loot spawn in the DZMSConfig.sqf file.
-* Added loads of different configs.
-* More stuff added
-* even more stuff.
-
-=======================================
-======== Epoch Mission System  ========
 ====== Rolling Change Log: 0.3 ======
 =======================================
 
