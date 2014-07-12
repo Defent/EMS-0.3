@@ -7,6 +7,7 @@ private ["_missName","_coords","_crate","_vehicle","_vehicle1","_vehicle2"];
 
 //Name of the Mission
 _missName = "Bandit Weapons Cache";
+diag_log format["[EMS]: Major SM1 Bandit Weapon Cache Mission has started."];
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;
@@ -14,7 +15,7 @@ _coords = call DZMSFindPos;
 [nil,nil,rTitleText,"Bandits have discovered a weapons cache! Check your map for the location!", "PLAIN",10] call RE;
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
-[_coords,_missname] ExecVM DZMSAddMajMarker;
+[_coords,_missname] execVM DZMSAddMajMarker;
 
 //We create the vehicles like normal
 _vehicle = createVehicle ["UAZ_Unarmed_UN_EP1",[(_coords select 0) + 10, (_coords select 1) - 20,0],[], 0, "CAN_COLLIDE"];
@@ -29,27 +30,27 @@ _vehicle1 = createVehicle ["UAZ_Unarmed_UN_EP1",[(_coords select 0) + 20, (_coor
 _crate = createVehicle ["USVehicleBox",_coords,[], 0, "CAN_COLLIDE"];
 
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
-[_crate,"weapons"] ExecVM DZMSBoxSetup;
+[_crate,"weapons"] execVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
-[_coords,4,2] ExecVM DZMSAISpawn;
+[[(_coords select 0) - 0.5635,(_coords select 1) + 0.3173,0],3,1,"DZMSUnitsMajor"] call DZMSAISpawn;
+
 sleep 5;
 
 
 //Wait until the player is within 30meters
-waitUntil{ {isPlayer _x && _x distance _coords <= 30 } count playableunits > 0 }; 
+
+[_coords,"DZMSUnitsMajor"] call DZMSWaitMissionComp;
 
 //Call DZMSSaveVeh to attempt to save the vehicles to the database
 //If saving is off, the script will exit.
-[_vehicle] ExecVM DZMSSaveVeh;
-[_vehicle1] ExecVM DZMSSaveVeh;
-[_vehicle2] ExecVM DZMSSaveVeh;
+ 
 
 //Let everyone know the mission is over
 [nil,nil,rTitleText,"The weapons cache is under survivor control!", "PLAIN",6] call RE;
-diag_log format["[DZMS]: Major SM1 Weapon Cache Mission has Ended."];
+diag_log format["[EMS]: Major SM1 Weapon Cache Mission has Ended."];
 deleteMarker "DZMSMajMarker";
 deleteMarker "DZMSMajDot";
 

@@ -6,6 +6,7 @@ private ["_missName","_coords","_base","_base1","_base2","_vehicle","_vehicle1",
 
 //Name of the Mission
 _missName = "Bandit Stash House";
+diag_log format["[EMS]: Minor SM3 Bandit Stash House Mission has started."];
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;
@@ -13,7 +14,7 @@ _coords = call DZMSFindPos;
 [nil,nil,rTitleText,"A group of bandits have set up a stash house! Check your map for the location!", "PLAIN",10] call RE;
 
 //DZMSAddMinMarker is a simple script that adds a marker to the location
-[_coords,_missName] ExecVM DZMSAddMinMarker;
+[_coords,_missName] execVM DZMSAddMinMarker;
 
 //We create the scenery
 _base = createVehicle ["Land_HouseV_1I3",[(_coords select 0) +2, (_coords select 1) +5,-0.3],[], 0, "CAN_COLLIDE"];
@@ -35,25 +36,24 @@ _vehicle1 = createVehicle ["UAZ_Unarmed_UN_EP1",[(_coords select 0) - 25, (_coor
 
 //We create and fill the crate
 _crate = createVehicle ["USVehicleBox",[(_coords select 0) - 3, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate,"weap"] ExecVM DZMSBoxSetup;
+[_crate,"weap"] execVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]
-[[(_coords select 0) - 20, (_coords select 1) - 15,0],6,0] ExecVM DZMSAISpawn;
+[[(_coords select 0) - 20, (_coords select 1) - 15,0],6,0] call DZMSAISpawn;
 sleep 3;
 
 //Wait until the player is within 30meters
-waitUntil{{isPlayer _x && _x distance _coords <= 30  } count playableunits > 0}; 
-
+[_coords,"DZMSUnitsMinor"] call DZMSWaitMissionComp;
 //Call DZMSSaveVeh to attempt to save the vehicles to the database
 //If saving is off, the script will exit.
-[_vehicle] ExecVM DZMSSaveVeh;
-[_vehicle1] ExecVM DZMSSaveVeh;
+ 
+ 
 
 //Let everyone know the mission is over
 [nil,nil,rTitleText,"The stash house is under survivor control!", "PLAIN",6] call RE;
-diag_log format["[DZMS]: Minor SM3 Stash House Mission has Ended."];
+diag_log format["[EMS]: Minor SM3 Stash House Mission has Ended."];
 deleteMarker "DZMSMinMarker";
 deleteMarker "DZMSMinDot";
 
