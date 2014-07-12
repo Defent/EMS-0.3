@@ -30,6 +30,7 @@ Installation
 	Defent's forked version in the 2nd link below.
 
 	> https://github.com/TheFuchs/EMS-0.3/archive/master.zip
+	Defent Edit
 	> https://github.com/Defent/EMS-0.3
 	
 2.	Extract it to your Desktop or somewhere where you won't lose it.
