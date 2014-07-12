@@ -7,13 +7,13 @@
 private ["_missName","_coords","_crate","_base1","_base2"];
 
 //Name of the Mission
-_missName = "Bandit Fire-base";
-diag_log format["[EMS]: Major SM9 Bandit Fire-base Mission has started."];
+_missName = "Bandit Supply Base";
+diag_log format["[EMS]: Major SM9 Bandit Supply Base Mission has started."];
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;
 
-[nil,nil,rTitleText,"A fire-base is being constructed! Stop the bandits and secure the construction materials for yourself!", "PLAIN",10] call RE;
+[nil,nil,rTitleText,"Bandits are creating a construction supply base! Stop them and secure the materials for yourself!", "PLAIN",10] call RE;
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] execVM DZMSAddMajMarker;
@@ -47,7 +47,7 @@ sleep 5;
 
 //Let everyone know the mission is over
 [nil,nil,rTitleText,"Survivors have secured the construction materials.", "PLAIN",6] call RE;
-diag_log format["[EMS]: Major SM9 Fire Base Mission has Ended."];
+diag_log format["[EMS]: Major SM9 Bandit Supply Base Mission has Ended."];
 deleteMarker "DZMSMajMarker";
 deleteMarker "DZMSMajDot";
 
