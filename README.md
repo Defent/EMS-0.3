@@ -26,16 +26,18 @@
 --------------------------
 Installation
 --------------------------
-1.	Download the Github Zip folder and open it with your unPacker of choice.
+1.	Download the Github Zip folder and open it with your unPacker of choice. You can also download
+	Defent's forked version in the 2nd link below.
 
 	> https://github.com/TheFuchs/EMS-0.3/archive/master.zip
+	> https://github.com/Defent/EMS-0.3
 	
 2.	Extract it to your Desktop or somewhere where you won't lose it.
-	Inside the Zip is this Readme.MD, a folder called Documentation, and one called DZMS.
+	Inside the Zip is this Readme.MD, a folder called Documentation, and one called EMS.
 	
 3.	Open your Server.PBO with the PBO unPacker of your choice.
 
-4.	Put the "DZMS" folder into your Server.pbo.
+4.	Put the "EMS" folder into your Server.pbo.
 
 5.	Open up your server_monitor.SQF in the system folder in your server.PBO.
 
