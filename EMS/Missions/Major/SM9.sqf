@@ -7,13 +7,13 @@
 private ["_missName","_coords","_crate","_base1","_base2"];
 
 //Name of the Mission
-_missName = "Bandit Medical Camp";
-diag_log format["[EMS]: Major SM9 Bandit Firebase Mission has started."];
+_missName = "Bandit Fire-base";
+diag_log format["[EMS]: Major SM9 Bandit Fire-base Mission has started."];
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;
 
-[nil,nil,rTitleText,"A firebase is being constructed! Stop the bandits and secure the construction materials for yourself!", "PLAIN",10] call RE;
+[nil,nil,rTitleText,"A fire-base is being constructed! Stop the bandits and secure the construction materials for yourself!", "PLAIN",10] call RE;
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] execVM DZMSAddMajMarker;
@@ -25,7 +25,7 @@ _base2 = createVehicle ["Land_Fort_Watchtower",[(_coords select 0) - 10, (_coord
 [_base2] call DZMSProtectObj;
 
 _crate = createVehicle ["USLaunchersBox",[(_coords select 0) + 22, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate,"weapons"] execVM DZMSBoxSetup;
+[_crate,"supply"] execVM DZMSBoxSetup;
 
 _crate2 = createVehicle ["MedBox0",[(_coords select 0) - 6, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 [_crate2,"medical"] execVM DZMSBoxSetup;
