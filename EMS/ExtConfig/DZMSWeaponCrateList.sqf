@@ -7,7 +7,7 @@
 DZMSpistolList = ["Colt1911","glock17_EP1","M9","M9SD","Makarov","MakarovSD","revolver_EP1","UZI_EP1"];
 
 // Sniper Rifles
-DZMSsniperList = ["SVD_CAMO","DMR_DZ","huntingrifle","M14_EP1","M24","M40A3","M16A4_ACG","M4SPR","M24_des_EP1"];
+DZMSsniperList = ["SVD_CAMO","DMR_DZ","huntingrifle","M14_EP1","M24","M40A3","M16A4_ACG"];
 
 // Light Machineguns
 DZMSmgList = ["M240_DZ","M249_DZ","Mk_48_DZ","bizon_silenced","MP5A5","MP5SD","RPK_74"];
@@ -17,17 +17,8 @@ DZMSprimaryList = ["AK_47_M","AK_74","AKS_74_kobra","AKS_74_U","BAF_L85A2_RIS_Ho
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // Epoch Supplies. If you have Epoch, these are the supplies in the Construction Crates
-DZMSConTools = ["ChainSaw","ItemToolbox","ItemCrowbar","ItemKnife","ItemEtool","ItemHatchet_DZE","ItemMatchbox_DZE"];
+DZMSConTools = ["ItemToolbox","ItemCrowbar","ItemKnife","ItemEtool","ItemHatchet_DZE"];
 
-DZMSConSupply = ["ItemWoodWallLg","PartPlywoodPack","workbench_kit","PartPlankPack","ItemWoodWallGarageDoor","CinderBlocks","MortarBucket","ItemWoodFloor","ItemWoodFloor","ItemWoodFloor","metal_floor_kit"];
+DZMSConSupply = ["metal_floor_kit","CinderBlocks","metal_floor_kit","CinderBlocks","CinderBlocks","MortarBucket","MortarBucket","MortarBucket","ItemTankTrap","ItemPole","PartGeneric","PartPlywoodPack","PartPlankPack","ItemSandbag","ItemWire","workbench_kit","ItemGenerator"];
 
-////////////////////////////////////////////////////////////////////////////////////////////////
-// EMS Stuff
-EMSToolsCon = ["ChainSaw","ItemToolbox","workbench_kit","ItemCrowbar","ItemKnife","ItemEtool","ItemHatchet_DZE","ItemMatchbox_DZE"];
-
-EMSSupplyCon = ["ItemWoodWallLg","PartPlywoodPack","PartPlankPack","ItemWoodWallGarageDoor","CinderBlocks","MortarBucket","ItemWoodFloor","ItemWoodFloor","ItemWoodFloor","metal_floor_kit"];
-
-EMSWeaponry = ["M4A1_RCO_GL","M16A4_GL","M4A3_CCO_EP1","M4A3_RCO_GL_EP1","M16A4_ACG","AK_47_M","AK_74","AKS_74_kobra","AKS_74_U","AK_74_GL","M16A4_ACG_GL"];
-
-EMSMedicals = ["ItemBandage","ItemMorphine","ItemEpinephrine","ItemPainkiller","FoodMRE","ItemSodaCoke","ItemAntibiotic","ItemBloodbag"];
-
+EMSGold = ["ItemGoldBar10oz","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar10oz"];
