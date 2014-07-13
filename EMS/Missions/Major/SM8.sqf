@@ -19,7 +19,7 @@ _coords = call DZMSFindPos;
 [nil,nil,rTitleText,"A C-130 has crash landed! Secure it's cargo for yourself!", "PLAIN",10] call RE;
 
 _vehicle = createVehicle ["C130J_wreck_EP1",[(_coords select 0) + 35, (_coords select 1) - 5,0],[], 0, "NONE"];
-_crate = createVehicle ["USVehicleBox",[(_coords select 0) - 20, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+_crate = createVehicle ["USVehicleBox",[(_coords select 0) + 15, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 _crate2 = createVehicle ["MedBox0",[(_coords select 0) + 20, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
@@ -40,7 +40,7 @@ sleep 5;
 
 
 //Let everyone know the mission is over
-[nil,nil,rTitleText,"The gear cache has been found, nice work, enjoy the spoils!", "PLAIN",6] call RE;
+[nil,nil,rTitleText,"The crashed C-13 has been found and secured by the survivors!", "PLAIN",6] call RE;
 diag_log format["[EMS]: Major SM8 C130 Mission has Ended."];
 deleteMarker "DZMSMajMarker";
 deleteMarker "DZMSMajDot";

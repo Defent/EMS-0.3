@@ -4,7 +4,7 @@
 	Edited by Fuchs for EMS
 */	
 
-private ["_missName","_coords","_crate","_crash","_vehicle"];
+private ["_missName","_coords","_crate","_crash","_vehicle","_base1"];
 
 //Name of the Mission
 _missName = "Abandoned Platoon";
@@ -18,7 +18,9 @@ _coords = call DZMSFindPos;
 //DZMSAddminMarker is a simple script that adds a marker to the location
 [_coords,_missName] execVM DZMSAddMinMarker;
 
-_crate = createVehicle ["USLaunchersBox",_coords,[], 0, "CAN_COLLIDE"];
+
+_crate = createVehicle ["USLaunchersBox",[(_coords select 0) + 10, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+_base1 = createVehicle ["land_fortified_nest_big",[(_coords select 0) + 17, (_coords select 1) - 10,-0.2],[], 0, "CAN_COLLIDE"];
 
 //Add the scenery
 _crash = createVehicle ["uralwreck", _coords,[], 0, "CAN_COLLIDE"];
@@ -30,6 +32,7 @@ _vehicle = createVehicle ["HMMWV_DZ",[(_coords select 0) + 25, (_coords select 1
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
 [_crate,"weap"] execVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
+[_base1] call DZMSProtectObj;
 
 //DZMSAISpawn spawns AI to the mission.
 //Usage: [_coords, count, skillLevel]

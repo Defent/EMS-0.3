@@ -30,7 +30,7 @@ _crate = createVehicle ["USLaunchersBox",[(_coords select 0) - 6, _coords select
 [_crate,"weapons"] execVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
-_crate2 = createVehicle ["USLaunchersBox",[(_coords select 0) + 6, _coords select 1,0],[], 90, "CAN_COLLIDE"];
+_crate2 = createVehicle ["USLaunchersBox",[(_coords select 0) - 8, _coords select 1,0],[], 5, "CAN_COLLIDE"];
 [_crate2,"weapons"] execVM DZMSBoxSetup;
 [_crate2] call DZMSProtectObj;
 

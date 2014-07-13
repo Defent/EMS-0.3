@@ -138,9 +138,6 @@ _wpfin setWaypointType "CYCLE";
 //diag_log text format ["[EMS]: Spawned %1 AI at %2",_unitcount,_position];
 
 // load the unit groups into a passed array name so they can be cleaned up later
-call compile format["
-%1 = %1 + (units _unitGroup); 
-_unitMissionCount = count %1;
-",_unitArrayName];
+call compile format["%1 = %1 + (units _unitGroup); _unitMissionCount = count %1;",_unitArrayName];
 
 diag_log text format["[EMS]: (%3) %1 AI Spawned, %2 units in mission.",count (units _unitGroup),_unitMissionCount,_unitArrayName];

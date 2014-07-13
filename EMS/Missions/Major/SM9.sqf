@@ -24,7 +24,7 @@ _base2 = createVehicle ["Land_Fort_Watchtower",[(_coords select 0) - 10, (_coord
 [_base1] call DZMSProtectObj;
 [_base2] call DZMSProtectObj;
 
-_crate = createVehicle ["USLaunchersBox",[(_coords select 0) + 22, _coords select 1,0],[], 0, "CAN_COLLIDE"];
+_crate = createVehicle ["USVehicleBox",[(_coords select 0) + 15, _coords select 1,0],[], 0, "CAN_COLLIDE"];
 [_crate,"supply"] execVM DZMSBoxSetup;
 
 _crate2 = createVehicle ["MedBox0",[(_coords select 0) - 6, _coords select 1,0],[], 0, "CAN_COLLIDE"];

@@ -290,8 +290,8 @@ DZMSCleanupThread = {
     //delete flagged nearby objects
     {
         if (_x getVariable ["DZMSCleanup",false]) then {
-		/* Sleep 5 seconds, so AI's dont get deleted instantly when a mission is cleared */
-		//sleep 5;
+		/* Sleep 8 seconds, so AI's do not get deleted instantly when a mission are cleared */
+		sleep 5;
             _x call DZMSPurgeObject;
         };
     } forEach (_this nearObjects 50);
